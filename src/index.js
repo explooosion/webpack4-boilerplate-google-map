@@ -1,6 +1,6 @@
 // import scss
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './scss/main.scss';
+import './scss/index.scss';
 
 // import libs
 import $ from 'jquery';
