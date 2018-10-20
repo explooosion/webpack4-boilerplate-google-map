@@ -33,6 +33,11 @@ $('#txtAdd').keypress(e => {
     if (e.keyCode === 13) searchLocation();
 });
 
+// Update circle
+$('#txtRange').bind('keyup mouseup', (e) => {
+    if (!map.centerCircle) return;
+    map.centerCircle.setRadius(Number(e.target.value));
+});
 
 function searchLocation() {
     const addr = $('#txtAdd').val();
@@ -44,6 +49,7 @@ function searchLocation() {
 
         // 定位地址
         map.addMarker(location, 18);
+        map.addCircle(location, $('#txtRange').val());
 
         // 設定經緯度標籤
         $('#txtLat').text(`Lat：${lat}`);
