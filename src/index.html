@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD5g_QO7b1pBfgl9OtX6vchzZwX1Vmxo2Y" async defer></script>
+</head>
+
+<body>
+    <h1>Google Map API <small>- Example</small></h1>
+    <form class="form-inline mt-2 mb-2" onsubmit="return false">
+        <div class="form-group mx-sm-3 mb-2">
+            <label for="txtAdd" class="mr-2">搜尋地址：</label>
+            <input id="txtAdd" type="text" class="form-control" placeholder="臺北總統府">
+        </div>
+        <button id="btnMarker" type="button" class="btn btn-primary mb-2 mr-2">定位</button>
+    </form>
+    <form class="form-inline mt-2 mb-2" onsubmit="return false">
+        <div class="form-group mx-sm-3 mb-2">
+            <label id="txtLat" class="mr-4">Lat：0</label>
+            <label id="txtLng" class="mr-4">Lng：0</label>
+        </div>
+    </form>
+    <div class="map"></div>
+</body>
+
+</html>
