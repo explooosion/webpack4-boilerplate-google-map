@@ -7,7 +7,7 @@ import $ from 'jquery';
 import 'bootstrap';
 
 // import js
-import Map from './js/map';
+import Map from './lib/map';
 
 if (process.env.NODE_ENV !== 'production') {
     console.warn('Looks like we are in development mode!');
