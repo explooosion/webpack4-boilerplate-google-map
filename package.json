@@ -10,6 +10,9 @@
         "stylelint:fix": "stylelint src/**/**/**/**/*.scss --syntax scss --fix",
         "lint": "npm run stylelint && npm run eslint"
     },
+    "pre-commit": [
+        "lint"
+    ],
     "keywords": [
         "webpack4",
         "scss",
