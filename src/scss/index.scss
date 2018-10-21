@@ -1,3 +1,5 @@
+@import '~bootstrap/dist/css/bootstrap.min.css';
+@import '~@claviska/jquery-minicolors/jquery.minicolors.css';
 @import './base/h';
  
 * {
@@ -14,4 +16,17 @@ body {
 
 .map {
   height: 100%;
+}
+
+.form-control[type='number'] {
+  width: 100px;
+}
+
+.form-control[data-control='hue'] {
+  width: 110px;
+  height: inherit;
+  
+  +span {
+    top: 10px;
+  }
 }

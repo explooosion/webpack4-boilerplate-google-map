@@ -204,6 +204,11 @@
     lodash "^4.17.10"
     to-fast-properties "^2.0.0"
 
+"@claviska/jquery-minicolors@^2.3.2":
+  version "2.3.2"
+  resolved "https://registry.yarnpkg.com/@claviska/jquery-minicolors/-/jquery-minicolors-2.3.2.tgz#ed4a455bd743b1cea9cdac6d01782748cdfe3f77"
+  integrity sha512-I99KtBtxwye6m+cxZ4uPyIrTGTCK6SB5Zb4gVe54hX7mrSOfqeGs5BmVLUVBWjjRRtWjfBYTDavw8AvmyD9kcQ==
+
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/@mrmlnc/readdir-enhanced/-/readdir-enhanced-2.2.1.tgz#524af240d1a360527b730475ecfa1344aa540dde"
@@ -216,6 +221,11 @@
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/@nodelib/fs.stat/-/fs.stat-1.1.2.tgz#54c5a964462be3d4d78af631363c18d6fa91ac26"
   integrity sha512-yprFYuno9FtNsSHVlSWd+nRlmGoAbqbeCwOryP6sC/zoCjhpArcRMYp19EvpSUSizJAlsXEwJv+wcWS9XaXdMw==
+
+"@sphinxxxx/color-conversion@^2.1.1":
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/@sphinxxxx/color-conversion/-/color-conversion-2.1.1.tgz#da281a9641eb3f699979432fe531bba520e3ffbb"
+  integrity sha1-2igalkHrP2mZeUMv5TG7pSDj/7s=
 
 "@webassemblyjs/ast@1.7.8":
   version "1.7.8"
@@ -1327,7 +1337,15 @@ boolbase@~1.0.0:
   resolved "https://registry.yarnpkg.com/boolbase/-/boolbase-1.0.0.tgz#68dff5fbe60c51eb37725ea9e3ed310dcc1e776e"
   integrity sha1-aN/1++YMUes3cl6p4+0xDcwed24=
 
-bootstrap@^4.1.3:
+bootstrap-colorpicker@^3.0.3:
+  version "3.0.3"
+  resolved "https://registry.yarnpkg.com/bootstrap-colorpicker/-/bootstrap-colorpicker-3.0.3.tgz#9fb703e96254ba51c83e6a2274138bdcde1adaf6"
+  integrity sha512-xDVuG5ZLDKLoYdBodnrKo417eqFlNwpk6gNbv1mAFdFno0p0xnkYm9KQTiUqR4kva9t+hlJJc2UURZnD6fvn+Q==
+  dependencies:
+    bootstrap "^4.0"
+    jquery ">=2.1.0"
+
+bootstrap@^4.0, bootstrap@^4.1.3:
   version "4.1.3"
   resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-4.1.3.tgz#0eb371af2c8448e8c210411d0cb824a6409a12be"
   integrity sha512-rDFIzgXcof0jDyjNosjv4Sno77X4KuPeFxG2XZZv1/Kc8DRVGVADdoQyyOVDwPqL36DDmtCQbrpMCqvpPLJQ0w==
@@ -2522,6 +2540,11 @@ dot-prop@^4.1.1:
   integrity sha512-tUMXrxlExSW6U2EXiiKGSBVdYgtV8qlHL+C10TsW4PURY/ic+eaysnSkwB4kA/mBlCyy/IKDJ+Lc3wbWeaXtuQ==
   dependencies:
     is-obj "^1.0.0"
+
+drag-tracker@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/drag-tracker/-/drag-tracker-1.0.0.tgz#9bd33d380bc3056db69bd5b3cf6e062fec58bd64"
+  integrity sha1-m9M9OAvDBW22m9Wzz24GL+xYvWQ=
 
 duplexify@^3.4.2, duplexify@^3.6.0:
   version "3.6.1"
@@ -4231,7 +4254,7 @@ isstream@~0.1.2:
   resolved "https://registry.yarnpkg.com/isstream/-/isstream-0.1.2.tgz#47e63f7af55afa6f92e1500e690eb8b8529c099a"
   integrity sha1-R+Y/evVa+m+S4VAOaQ64uFKcCZo=
 
-jquery@^3.3.1:
+jquery@>=2.1.0, jquery@^3.3.1:
   version "3.3.1"
   resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.3.1.tgz#958ce29e81c9790f31be7792df5d4d95fc57fbca"
   integrity sha512-Ubldcmxp5np52/ENotGxlLe6aGMvmF4R8S6tZjsP6Knsaxd/xp3Zrh50cG93lR6nPXyUFwzN3ZSOQI0wRJNdGg==
@@ -7791,6 +7814,14 @@ validate-npm-package-license@^3.0.1:
   dependencies:
     spdx-correct "^3.0.0"
     spdx-expression-parse "^3.0.0"
+
+vanilla-picker@^2.6.0:
+  version "2.6.0"
+  resolved "https://registry.yarnpkg.com/vanilla-picker/-/vanilla-picker-2.6.0.tgz#4818e08c86f553116249cd3740603238aa839b3d"
+  integrity sha512-ovYPiEAWFniw9IYebw/kOKwFYMQ5pBPbtEczBrQNbArkV5xWi4np9GJ3/Ma7nTzZdFhfd/d7Gt9u/ZMZWicx5A==
+  dependencies:
+    "@sphinxxxx/color-conversion" "^2.1.1"
+    drag-tracker "^1.0.0"
 
 vary@~1.1.2:
   version "1.1.2"
