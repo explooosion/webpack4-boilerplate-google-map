@@ -8,6 +8,7 @@ import '@claviska/jquery-minicolors';
 
 // import js
 import Map from './lib/map';
+import { toggleToolButton, searchLocation } from './lib/map.tool';
 
 if (process.env.NODE_ENV !== 'production') {
     console.warn('Looks like we are in development mode!');
@@ -25,13 +26,13 @@ const map = new Map();
 
 window.onload = () => {
     map.init(lat, lng, zoom);
-    searchLocation();
+    searchLocation(map);
 };
 
 // Search Event
-$('#btnMarker').click(() => searchLocation());
+$('#btnPosotion').click(() => searchLocation(map));
 $('#txtAdd').keypress(e => {
-    if (e.keyCode === 13) searchLocation();
+    if (e.keyCode === 13) searchLocation(map);
 });
 
 // circle update
@@ -40,7 +41,7 @@ $('#txtRange').bind('keyup mouseup', e => {
     map.centerCircle.setRadius(Number(e.target.value));
 });
 
-// circle color and update
+// 圓形顏色與更新
 $('#txtColor').minicolors();
 $('#txtColor').change(e => {
     if (!map.centerCircle) return;
@@ -50,24 +51,17 @@ $('#txtColor').change(e => {
     });
 });
 
-function searchLocation() {
-    const addr = $('#txtAdd').val();
-    if (addr === '') return;
-    map.search(addr, result => {
-        const { status, location, lat, lng } = result;
+// 地圖標記新增
+$('#btnMarker').click(e => {
+    map.currentMode = map.currentMode === map.modes.DRAW ? map.modes.POINT : map.modes.DRAW;
+    toggleToolButton(e.target);
+});
 
-        if (!status) return;
+// 地圖標記刪除
+$('#btnDelete').click(e => {
+    map.currentMode = map.currentMode === map.modes.DELETE ? map.modes.POINT : map.modes.DELETE;
+    toggleToolButton(e.target);
+});
 
-        // 定位地址
-        map.addMarker(location, 18);
-        map.addCircle(
-            location,
-            $('#txtRange').val(),
-            $('#txtColor').val()
-        );
-
-        // 設定經緯度標籤
-        $('#txtLat').text(`Lat：${lat}`);
-        $('#txtLng').text(`Lng：${lng}`);
-    });
-}
+// 地圖標記清空
+$('#btnDeleteAll').click(e => map.deleteAllMarkers());

@@ -2,9 +2,11 @@ class Map {
     constructor() {
         this.map = null;
         this.geocoder = null;
+        this.modes = { POINT: 'pointer', DRAG: 'drag', DRAW: 'draw', DELETE: 'delete' };
+        this.markers = [];
         this.centerMarker = null;
         this.centerCircle = null;
-        this.markers = [];
+        this.currentMode = this.modes.POINT;
     }
 
     /**
@@ -18,7 +20,7 @@ class Map {
             center: { lat: lat, lng: lng },
             zoom: zoom,
         });
-        this.map.addListener('click', this.onClick);
+        this.map.addListener('click', this.onClick.bind(this));
         this.geocoder = new google.maps.Geocoder;
     }
 
@@ -29,7 +31,12 @@ class Map {
     onClick(args) {
         const { latLng } = args;
         console.log('click', latLng.lat(), latLng.lng());
-        return latLng;
+        switch (this.currentMode) {
+            case this.modes.DRAW:
+                this.addMarker(latLng);
+                break;
+            default: break;
+        }
     }
 
     /**
@@ -37,7 +44,7 @@ class Map {
      * @param {object} location 
      * @param {number} zoom 
      */
-    addMarker(location, zoom) {
+    addCenterMarker(location, zoom) {
         // 移除當前標記
         if (this.centerMarker) {
             this.centerMarker.setMap(null);
@@ -71,6 +78,49 @@ class Map {
             center: location,
             radius: Number(radius),
         });
+    }
+
+    /**
+     * 新增標記點
+     * @param {object} location 
+     */
+    addMarker(location) {
+        var infowindow = new google.maps.InfoWindow({
+            content: `
+                    <h6>lat: ${location.lat()}</h6>
+                    <h6>lng: ${location.lng()}</h6>
+                    `
+        });
+        const marker = new google.maps.Marker({
+            position: location,
+            map: this.map,
+        });
+        marker.addListener('click', e => {
+            switch (this.currentMode) {
+                case this.modes.DELETE:
+                    this.deleteMarker(marker);
+                    break;
+                default:
+                    infowindow.open(this.map, marker);
+                    break;
+            }
+        });
+        this.markers.push(marker);
+    }
+
+    /**
+     *移除指定標記
+     * @param {object} marker 
+     */
+    deleteMarker(marker) {
+        marker.setMap(null);
+    }
+
+    /**
+     * 清除所有地圖標記
+     */
+    deleteAllMarkers() {
+        this.markers.forEach(marker => marker.setMap(null));
     }
 
     /**
