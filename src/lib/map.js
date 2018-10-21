@@ -19,6 +19,8 @@ class Map {
         this.map = new google.maps.Map(document.querySelector('.map'), {
             center: { lat: lat, lng: lng },
             zoom: zoom,
+            mapTypeControl: false,
+            fullscreenControl: false,
         });
         this.map.addListener('click', this.onClick.bind(this));
         this.geocoder = new google.maps.Geocoder;
