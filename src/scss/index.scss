@@ -1,10 +1,6 @@
 @import '~bootstrap/dist/css/bootstrap.min.css';
 @import '~@claviska/jquery-minicolors/jquery.minicolors.css';
 @import './base/h';
- 
-* {
-  color: #fff;
-} 
 
 html,
 body {
@@ -14,8 +10,29 @@ body {
   background-color: #282a35 !important;
 }
 
+h1 {
+  color: #fff;
+
+  small {
+    color: #fff;
+  }
+}
+
+label {
+  color: #fff;
+}
+
 .map {
   height: 100%;
+}
+
+.btn.active {
+  font-weight: bold !important;
+  color: #ff0 !important;
+}
+
+.form-control#txtAdd {
+  width: 280px;
 }
 
 .form-control[type='number'] {
